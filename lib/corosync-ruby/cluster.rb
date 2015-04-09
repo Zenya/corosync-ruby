@@ -88,7 +88,7 @@ module Corosync
 
       @resources_started = []
       @resources_stopped = []
-      resources = output.scan(/^\s*(\w+)\s*\([\w:]+\):\s*([\w ]*)$/)
+      resources = output.scan(/^\s\w+\s*\(.*\:.*\)\:\s*.*$/)
       resources.each do |res|
         status = res[1].split(' ')
         if status.include? 'Started'
